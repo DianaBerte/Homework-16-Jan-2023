@@ -9,14 +9,14 @@ const getLists = () => {
         return response.json()
     }).then((data) => {
         console.log(data)
+        
 
         let albums = data.data
 
-
-
-      
+        renderAlbums(albums)
+     
     })
-    
+ 
     .catch(err => console.error(err))
 }
 
@@ -25,12 +25,14 @@ const renderAlbums = (albums) => {
 
     for (let i = 0; i < albums.length; i++) {
         rowNode.innerHTML += `
+        <div class = "col col-lg-3">
         <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">${albums[i].title}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
         </div>
         </div>
         `
